@@ -40,7 +40,7 @@ if (isset($_POST) && !empty($_POST)) //http://stackoverflow.com/questions/130452
 <!DOCTYPE HTML>
 <html>
   <head>
-  <link ref="stylsheet" type="css/txt" href="stylesheet.css">
+  <link rel="stylsheet" type="css/txt" href="stylesheet.css">
   </head>
   <body>
     <div id="container">

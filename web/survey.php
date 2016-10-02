@@ -7,7 +7,7 @@ if (isset($_SESSION["voted"])){
 <!DOCTYPE HTML>
 <html>
   <head>
-    <link ref="stylsheet" type="css/txt" href="stylesheet.css">
+    <link rel="stylsheet" type="css/txt" href="stylesheet.css">
   </head> 
   <body>
     <div id="container">
