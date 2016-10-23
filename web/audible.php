@@ -11,7 +11,7 @@ require_once('dbconnection.php'); //include the db
   $mainID = '';
   $mainCats = $connection->query($sql);
   //http://php.net/manual/en/pdo.query.php
-  foreach ($connection->query($sql) as $row){
+  foreach ($connection->query($main_cat_sql) as $row){
     print $row['main_category_id'] . " ";
     print $row['name'] . "<br>";
     $mainID = $row['main_category_id'];
