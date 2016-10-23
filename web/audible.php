@@ -32,15 +32,16 @@ $mainID = '';
         $subCats = $subArray->fetchAll();
           
         foreach ($subCats as $rows){
-          $subID = $row['sub_category_id'];
-          $subName = $row['name'];
-          print "<input type='checkbox' name='mainCats' value='$subID-$subName'><strong>$subName</strong><br>";
+          $subID = $rows['sub_category_id'];
+          $subName = $rows['name'];
+          print "<input type='checkbox' name='subCats' value='$subID-$subName'><strong>$subName</strong><br>";
         }
         print "<br>";
       }
       ?>
       <br>
       Email:<input type="email" name="email">
+      <br>
       <input type="submit" value="Submit">
     </form>
 
