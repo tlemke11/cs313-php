@@ -25,7 +25,7 @@ $mainID = '';
         } else {
           print "<form action='signup.php'>";
 
-            php //This isn't super-clean - hopefully I can make it cleaner later
+            //This isn't super-clean - hopefully I can make it cleaner later
             //http://php.net/manual/en/pdo.query.php
             //$i = 0;
             //print "<div class='wrapper'>";
@@ -63,11 +63,10 @@ $mainID = '';
             print "<br>";
             print "<input type='submit' value='Submit'>";
             print "</form>";
+        }    
           ?>
-        }
       </div>
     </div>
-
   <div id="footer">
     Copyright Tyler Lemke 2016
   <div>
