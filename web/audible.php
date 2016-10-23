@@ -36,7 +36,7 @@ $mainID = '';
           foreach ($subCats as $rows){
             $subID = $rows['sub_category_id'];
             $subName = $rows['name'];
-            print "<input type='checkbox' name='subCats' value='$subID-$subName'><strong>$subName</strong><br>";
+            print "<input type='checkbox' name='subCats' value='$subID-$subName'>$subName<br>";
           }
           print "<br>";
         }
