@@ -19,7 +19,7 @@ $mainID = '';
         <h1>Audible Daily Deal Selector</h1>
         
         
-        <?
+        <?php
         if(isset($_POST['submit'])){
           print "<p>Thank you for Signing Up - You will receive a confirmation email shortly</p>";
         } else {
