@@ -16,6 +16,12 @@
 #main
 {}
 
+.wrapper
+{
+  display: inline;
+  width: 25%;
+}
+
 #centered
 {
   margin: 0 auto;
