@@ -11,7 +11,7 @@ $mainID = '';
 <html>
   <head>
     <title>Audible Daily Deal Selector</title>
-    <link rel="stylesheet" type="css/txt" href="stylesheet.css">
+    <link rel="stylesheet" type="css/txt" href="style.css">
   </head>
   <body>
     <div id="container">
