@@ -23,7 +23,7 @@ $mainID = '';
         if(isset($_POST['submit'])){
           print "<p>Thank you for Signing Up - You will receive a confirmation email shortly</p>";
           
-          $manCateg = $_POST['mainCats'];
+          $mainCateg = $_POST['mainCats'];
           $subCateg = $_POST['subCats'];
           print_r($mainCateg);
           print_r($subCateg);
