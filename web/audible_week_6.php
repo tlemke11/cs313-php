@@ -20,7 +20,7 @@ $mainID = '';
         
         
         <?
-        if(isset($_POST['submit']){
+        if(isset($_POST['submit'])){
           print "<p>Thank you for Signing Up - You will receive a confirmation email shortly</p>";
         } else {
           print "<form action='signup.php'>";
