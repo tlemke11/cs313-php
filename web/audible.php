@@ -7,7 +7,7 @@ require_once('dbconnection.php'); //include the db
 //this is gonna be a trip
 
   $main_cat_sql = 'SELECT main_category_id, name FROM main_categories ORDER BY name';
-  $sub_cat_sql = "SELECT sub_category_id,name,main_category_id FROM sub_categories WHERE main_category_id=117 ORDER BY name";
+  $sub_cat_sql = "SELECT sub_category_id,name,main_category_id FROM sub_categories WHERE main_category_id=:mainID ORDER BY name";
   $mainID = '';
  
   //http://php.net/manual/en/pdo.query.php
@@ -19,6 +19,7 @@ require_once('dbconnection.php'); //include the db
     //http://stackoverflow.com/questions/15385965/php-pdo-with-foreach-and-fetch
     //See your common sense's answer
     $subArray = $connection->prepare($sub_cat_sql);
+    $subArray->bindParam(':mainID', $mainID, PDO::PARAM_INT);
     $subArray->execute();
     $subCats = $subArray->fetchAll();
     
