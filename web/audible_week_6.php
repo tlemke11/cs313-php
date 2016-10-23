@@ -32,10 +32,10 @@ $mainID = '';
 
           
           //insert the user first
-         // $sqlUserInsert = "INSERT INTO users (email) VALUES(:email)";
-          //$userQry = $connection->prepare($sqlUserInsert);
-          //$userQry->bindParam(':email', $email, PDO::PARAM_STR, 30);
-          //$userQry->execute();
+          $sqlUserInsert = "INSERT INTO users (email) VALUES(:email)";
+          $userQry = $connection->prepare($sqlUserInsert);
+          $userQry->bindParam(':email', $email, PDO::PARAM_STR, 30);
+          $userQry->execute();
           
           //$userID = connection->lastInsertId();
           
