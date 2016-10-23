@@ -17,9 +17,9 @@ require_once('dbconnection.php'); //include the db
     $mainID = $row['main_category_id'];
     $subArray = $connection->prepare($sub_cat_sql);
     $subCats = $subArray->fetchAll();
-  foreach ($subCats as $row){
-      print $row['sub_category_id'] . " ";
-      print $row['name'] . "<br>";
+  foreach ($subCats as $rows){
+      print $rows['sub_category_id'] . " ";
+      print $rows['name'] . "<br>";
     }
   }
 
