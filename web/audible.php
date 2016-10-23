@@ -7,7 +7,7 @@ require_once('dbconnection.php'); //include the db
 //this is gonna be a trip
 
   $main_cat_sql = 'SELECT main_category_id, name FROM main_categories ORDER BY name';
-  $sub_cat_sql = "SELECT sub_category_id, name FROM sub_categories WHERE main_category_id=$mainID ORDER BY name";
+  $sub_cat_sql = "SELECT sub_category_id,name,main_category_id FROM sub_categories WHERE main_category_id=$mainID ORDER BY name";
   $mainID = '';
   $mainCats = $connection->query($sql);
   //http://php.net/manual/en/pdo.query.php
@@ -16,10 +16,10 @@ require_once('dbconnection.php'); //include the db
     print $row['name'] . "<br>";
     $mainID = $row['main_category_id'];
     
-//foreach ($connection->prepare($sub_cat_sql)){
-    //  print $row['sub_category_id'] . " ";
-      //print $row['name'] . "<br>";
-    //}
+  foreach ($connection->prepare($sub_cat_sql)){
+      print $row['sub_category_id'] . " ";
+      print $row['name'] . "<br>";
+    }
   }
   print_r($mainCats);
 ?>
