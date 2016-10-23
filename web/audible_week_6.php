@@ -28,6 +28,9 @@ $mainID = '';
           print_r($mainCateg);
           print_r($subCateg);
           
+          foreach ($_POST as $key => $value)
+ echo "Field ".htmlspecialchars($key)." is ".htmlspecialchars($value)."<br>";
+          
         } else {
           $self = $_SERVER['PHP_SELF'];
           print "<form action='$self' method='POST'>";
