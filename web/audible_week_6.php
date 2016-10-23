@@ -49,7 +49,7 @@ $mainID = '';
               $mainID = $row['main_category_id'];
               $mainName = $row['name'];
          
-              print "<input type='checkbox' name='mainCats' value='$mainID-$mainName'><strong>$mainName</strong><br>";
+              print "<input type='checkbox' name='mainCats[]' value='$mainID-$mainName'><strong>$mainName</strong><br>";
               
               //http://stackoverflow.com/questions/15385965/php-pdo-with-foreach-and-fetch
               //See your common sense's answer
@@ -62,7 +62,7 @@ $mainID = '';
                 //$i++;
                 $subID = $rows['sub_category_id'];
                 $subName = $rows['name'];
-                print "<input type='checkbox' name='subCats' value='$subID-$subName'>$subName<br>";
+                print "<input type='checkbox' name='subCats[]' value='$subID-$subName'>$subName<br>";
               }
               //print "</div>";
               print "<br>";
