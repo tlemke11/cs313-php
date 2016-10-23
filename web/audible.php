@@ -20,15 +20,15 @@ $mainID = '';
 
         <?php //This isn't super-clean - hopefully I can make it cleaner later
         //http://php.net/manual/en/pdo.query.php
-        $i = 0;
-        print "<div class='wrapper'>";
+        //$i = 0;
+        //print "<div class='wrapper'>";
         foreach ($connection->query($main_cat_sql) as $row){
-          if ($i == 25){
-            print "</div>";
-            print "<div class='wrapper'>";
-            $i = 0;
-          }
-          $i++;
+          //if ($i == 25){
+          //  print "</div>";
+          //  print "<div class='wrapper'>";
+          //  $i = 0;
+          //}
+          //$i++;
           $mainID = $row['main_category_id'];
           $mainName = $row['name'];
      
@@ -42,12 +42,12 @@ $mainID = '';
           $subCats = $subArray->fetchAll();
             
           foreach ($subCats as $rows){
-            $i++;
+            //$i++;
             $subID = $rows['sub_category_id'];
             $subName = $rows['name'];
             print "<input type='checkbox' name='subCats' value='$subID-$subName'>$subName<br>";
           }
-          print "</div>";
+          //print "</div>";
           print "<br>";
         }
         ?>
