@@ -14,7 +14,7 @@ require_once('dbconnection.php'); //include the db
   //http://stackoverflow.com/questions/15385965/php-pdo-with-foreach-and-fetch
   //See your common sense's answer
   $subArray = $connection->prepare($sub_cat_sql);
-  $subArray = execute();
+  $subArray->execute();
   $subCats = $subArray->fetchAll();
     
   foreach ($subCats as $rows){
