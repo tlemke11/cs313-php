@@ -21,16 +21,26 @@ $mainID = '';
         
         <?php
         if(isset($_POST['submit'])){
-          print "<p>Thank you for Signing Up - You will receive a confirmation email shortly</p>";
+          print "<p>Thank you for Signing Up!</p>";
           
           $mainCateg = $_POST['mainCats'];
           $subCateg = $_POST['subCats'];
+          $email = $subCateg = $_POST['email'];
           print_r($mainCateg);
           print_r($subCateg);
           
-          foreach ($_POST as $key => $value)
- echo "Field ".htmlspecialchars($key)." is ".htmlspecialchars($value)."<br>";
+
           
+          //insert the user first
+          $sqlUserInsert = "INSERT INTO users (email)
+                                VALUES(:email)";
+          $userQry = $connection->prepare($sqlUserInsert);
+          $userQry->bindParam(':email', $email, PDO::PARAM_STR, 30);
+          $userQry->execute();
+          
+          $userID = connection->lastInsertId();
+          
+
         } else {
           $self = $_SERVER['PHP_SELF'];
           print "<form action='$self' method='POST'>";
