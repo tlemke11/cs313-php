@@ -23,7 +23,8 @@ $mainID = '';
         if(isset($_POST['submit'])){
           print "<p>Thank you for Signing Up - You will receive a confirmation email shortly</p>";
         } else {
-          print "<form action='audible_week_6.php' method='POST'>";
+          $self = $_SERVER['PHP_SELF'];
+          print "<form action='$self' method='POST'>";
 
             //This isn't super-clean - hopefully I can make it cleaner later
             //http://php.net/manual/en/pdo.query.php
@@ -61,7 +62,7 @@ $mainID = '';
             print "<br>";
             print "Email:<input type='email' name='email'>";
             print "<br>";
-            print "<input type='submit' value='Submit'>";
+            print "<input type='submit' name='submit' value='Submit'>";
             print "</form>";
         }    
           ?>
