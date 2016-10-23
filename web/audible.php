@@ -17,7 +17,7 @@ $mainID = '';
       <?php //This isn't super-clean - hopefully I can make it cleaner later
       //http://php.net/manual/en/pdo.query.php
       foreach ($connection->query($main_cat_sql) as $row){
-        print "<input type=\"checkbox\" name=\"mainCats\" value=\"" . $row['main_category_id'] . "-" $row['name'] . "\">$row['name']<br>";
+      print "<input type='checkbox' name='mainCats' value='{$row['main_category_id']}-{$row['name']}'>$row['name']<br>";
         $mainID = $row['main_category_id'];
           
         //http://stackoverflow.com/questions/15385965/php-pdo-with-foreach-and-fetch
