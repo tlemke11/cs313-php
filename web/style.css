@@ -2,8 +2,7 @@
 {
   width: 900px;
   height: 100%;
-  border: 5px solid black;
-  border-style: rounded;
+  border: 5px rounded solid black;
   margin: 0 auto;
 }
 

@@ -23,7 +23,7 @@ $mainID = '';
         $i = 0;
         print "<div class='wrapper'>";
         foreach ($connection->query($main_cat_sql) as $row){
-          if ($i = 25){
+          if ($i == 25){
             print "</div>";
             print "<div class='wrapper'>";
             $i = 0;
