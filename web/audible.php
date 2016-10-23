@@ -17,9 +17,11 @@ $mainID = '';
       <?php //This isn't super-clean - hopefully I can make it cleaner later
       //http://php.net/manual/en/pdo.query.php
       foreach ($connection->query($main_cat_sql) as $row){
-      //print "<input type='checkbox' name='mainCats' value='{$row['main_category_id']}-{$row['name']}'>$row['name']<br>";
         $mainID = $row['main_category_id'];
-          
+        $mainName = $row['name'];
+   
+        print "<input type='checkbox' name='mainCats' value='$mainID-$mainName'>$mainName<br>";
+        
         //http://stackoverflow.com/questions/15385965/php-pdo-with-foreach-and-fetch
         //See your common sense's answer
         $subArray = $connection->prepare($sub_cat_sql);
