@@ -16,10 +16,10 @@ require_once('dbconnection.php'); //include the db
     print $row['name'] . "<br>";
     $mainID = $row['main_category_id'];
     
-  foreach ($connection->query($sub_cat_sql)){
+  foreach ($connection->query($sub_cat_sql) as $row){
       print $row['sub_category_id'] . " ";
       print $row['name'] . "<br>";
     }
   }
-  print_r($mainCats);
+
 ?>
