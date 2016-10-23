@@ -23,7 +23,7 @@ $mainID = '';
         if(isset($_POST['submit'])){
           print "<p>Thank you for Signing Up - You will receive a confirmation email shortly</p>";
         } else {
-          print "<form action='' method='POST'>";
+          print "<form action='audible_week_6.php' method='POST'>";
 
             //This isn't super-clean - hopefully I can make it cleaner later
             //http://php.net/manual/en/pdo.query.php
