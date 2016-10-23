@@ -15,47 +15,49 @@ $mainID = '';
   </head>
   <body>
     <div id="container">
-      <h1>Audible Daily Deal Selector</h1>
-      <form action="signup.php">
+      <div id="centered">
+        <h1>Audible Daily Deal Selector</h1>
+        <form action="signup.php">
 
-        <?php //This isn't super-clean - hopefully I can make it cleaner later
-        //http://php.net/manual/en/pdo.query.php
-        //$i = 0;
-        //print "<div class='wrapper'>";
-        foreach ($connection->query($main_cat_sql) as $row){
-          //if ($i == 25){
-          //  print "</div>";
-          //  print "<div class='wrapper'>";
-          //  $i = 0;
-          //}
-          //$i++;
-          $mainID = $row['main_category_id'];
-          $mainName = $row['name'];
-     
-          print "<input type='checkbox' name='mainCats' value='$mainID-$mainName'><strong>$mainName</strong><br>";
-          
-          //http://stackoverflow.com/questions/15385965/php-pdo-with-foreach-and-fetch
-          //See your common sense's answer
-          $subArray = $connection->prepare($sub_cat_sql);
-          $subArray->bindParam(':mainID', $mainID, PDO::PARAM_INT);
-          $subArray->execute();
-          $subCats = $subArray->fetchAll();
-            
-          foreach ($subCats as $rows){
+          <?php //This isn't super-clean - hopefully I can make it cleaner later
+          //http://php.net/manual/en/pdo.query.php
+          //$i = 0;
+          //print "<div class='wrapper'>";
+          foreach ($connection->query($main_cat_sql) as $row){
+            //if ($i == 25){
+            //  print "</div>";
+            //  print "<div class='wrapper'>";
+            //  $i = 0;
+            //}
             //$i++;
-            $subID = $rows['sub_category_id'];
-            $subName = $rows['name'];
-            print "<input type='checkbox' name='subCats' value='$subID-$subName'>$subName<br>";
+            $mainID = $row['main_category_id'];
+            $mainName = $row['name'];
+       
+            print "<input type='checkbox' name='mainCats' value='$mainID-$mainName'><strong>$mainName</strong><br>";
+            
+            //http://stackoverflow.com/questions/15385965/php-pdo-with-foreach-and-fetch
+            //See your common sense's answer
+            $subArray = $connection->prepare($sub_cat_sql);
+            $subArray->bindParam(':mainID', $mainID, PDO::PARAM_INT);
+            $subArray->execute();
+            $subCats = $subArray->fetchAll();
+              
+            foreach ($subCats as $rows){
+              //$i++;
+              $subID = $rows['sub_category_id'];
+              $subName = $rows['name'];
+              print "<input type='checkbox' name='subCats' value='$subID-$subName'>$subName<br>";
+            }
+            //print "</div>";
+            print "<br>";
           }
-          //print "</div>";
-          print "<br>";
-        }
-        ?>
-        <br>
-        Email:<input type="email" name="email">
-        <br>
-        <input type="submit" value="Submit">
-      </form>
+          ?>
+          <br>
+          Email:<input type="email" name="email">
+          <br>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
     </div>
 
   <div id="footer">
