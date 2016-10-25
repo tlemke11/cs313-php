@@ -36,9 +36,29 @@ $mainID = '';
           $userQry = $connection->prepare($sqlUserInsert);
           $userQry->bindParam(':email', $email, PDO::PARAM_STR, 30);
           $userQry->execute();
-          $userID = connection->lastInsertId();
+          $userID = $connection->lastInsertId();
           
-
+          $sqlCatInsert = "INSERT INTO email_subscription(user_id, category_id, category_type) VALUES(:user_id,:category_id,:category_type)";
+          
+          foreach ($mainCateg as $ids){
+            $categoryType = 0;
+            
+            $mainCatQry = $connection->prepare($sqlCatInsert);
+            $mainCatQry->bindParam(':user_id', $userID, PDO::PARAM_INT);
+            $mainCatQry->bindParam(':category_id', $ids, PDO::PARAM_INT);
+            $mainCatQry->bindParam(':category_type', $categoryType, PDO::PARAM_INT);
+            $mainCatQry->execute();  
+          }
+          
+          foreach ($subCateg as $ids){ //repeated code here, could turn this into a function
+            $categoryType = 1;
+            
+            $subCatQry = $connection->prepare($sqlCatInsert);
+            $subCatQry->bindParam(':user_id', $userID, PDO::PARAM_INT);
+            $subCatQry->bindParam(':category_id', $ids, PDO::PARAM_INT);
+            $subCatQry->bindParam(':category_type', $categoryType, PDO::PARAM_INT);
+            $subCatQry->execute();  
+          }
           
           
           
