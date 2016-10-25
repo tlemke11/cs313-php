@@ -36,8 +36,31 @@ $mainID = '';
           $userQry = $connection->prepare($sqlUserInsert);
           $userQry->bindParam(':email', $email, PDO::PARAM_STR, 30);
           $userQry->execute();
+          $userID = connection->lastInsertId();
           
-          //$userID = connection->lastInsertId();
+          $sqlCatInsert = "INSERT INTO email_subscription(user_id, category_id, category_type) VALUES(:user_id,:category_id,:category_type)";
+          
+          foreach ($mainCateg as $ids){
+            $categoryType = 0;
+            
+            $mainCatQry = $connection->prepare($sqlCatInsert);
+            $mainCatQry->bindParam(':user_id', $userID, PDO::PARAM_INT);
+            $mainCatQry->bindParam(':category_id', $ids, PDO::PARAM_INT);
+            $mainCatQry->bindParam(':category_type', $categoryType, PDO::PARAM_INT);
+            $mainCatQry->execute();  
+          }
+          
+          foreach ($mainCateg as $ids){ //repeated code here, could turn this into a function
+            $categoryType = 1;
+            
+            $mainCatQry = $connection->prepare($sqlCatInsert);
+            $mainCatQry->bindParam(':user_id', $userID, PDO::PARAM_INT);
+            $mainCatQry->bindParam(':category_id', $ids, PDO::PARAM_INT);
+            $mainCatQry->bindParam(':category_type', $categoryType, PDO::PARAM_INT);
+            $mainCatQry->execute();  
+          }
+          
+          
           
 
         } else {
@@ -58,7 +81,7 @@ $mainID = '';
               $mainID = $row['main_category_id'];
               $mainName = $row['name'];
          
-              print "<input type='checkbox' name='mainCats[]' value='$mainID-$mainName'><strong>$mainName</strong><br>";
+              print "<input type='checkbox' name='mainCats[]' value='$mainID-0'><strong>$mainName</strong><br>";
               
               //http://stackoverflow.com/questions/15385965/php-pdo-with-foreach-and-fetch
               //See your common sense's answer
@@ -71,7 +94,7 @@ $mainID = '';
                 //$i++;
                 $subID = $rows['sub_category_id'];
                 $subName = $rows['name'];
-                print "<input type='checkbox' name='subCats[]' value='$subID-$subName'>$subName<br>";
+                print "<input type='checkbox' name='subCats[]' value='$subID-1'>$subName<br>";
               }
               //print "</div>";
               print "<br>";
