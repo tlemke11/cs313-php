@@ -50,14 +50,14 @@ $mainID = '';
             $mainCatQry->execute();  
           }
           
-          foreach ($mainCateg as $ids){ //repeated code here, could turn this into a function
+          foreach ($subCateg as $ids){ //repeated code here, could turn this into a function
             $categoryType = 1;
             
-            $mainCatQry = $connection->prepare($sqlCatInsert);
-            $mainCatQry->bindParam(':user_id', $userID, PDO::PARAM_INT);
-            $mainCatQry->bindParam(':category_id', $ids, PDO::PARAM_INT);
-            $mainCatQry->bindParam(':category_type', $categoryType, PDO::PARAM_INT);
-            $mainCatQry->execute();  
+            $subCatQry = $connection->prepare($sqlCatInsert);
+            $subCatQry->bindParam(':user_id', $userID, PDO::PARAM_INT);
+            $subCatQry->bindParam(':category_id', $ids, PDO::PARAM_INT);
+            $subCatQry->bindParam(':category_type', $categoryType, PDO::PARAM_INT);
+            $subCatQry->execute();  
           }
           
           
